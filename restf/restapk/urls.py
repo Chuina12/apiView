@@ -6,5 +6,6 @@ urlpatterns = [
     path('addData',views.addData,name='addData'),
     path('<int:pk>/', views.DetailPersonne.as_view(),name='DetailPersonne'),
     path('CreatePersonne',views.CreatePersonne.as_view(), name='CreatePersonne'),
-    path('<int:pk>/UpdatePersonne',views.UpdatePersonne.as_view(),name='UpdatePersonne')
+    path('<int:pk>/UpdatePersonne',views.UpdatePersonne.as_view(),name='UpdatePersonne'),
+    path('Createlist',views.Createlist.as_view(), name='Createlist'),
 ]

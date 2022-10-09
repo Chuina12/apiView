@@ -5,7 +5,7 @@ from .models import Personne
 from django.forms.models  import model_to_dict
 from django.http import JsonResponse
 from . serializer import PersonneSerializer
-from rest_framework import generics
+from rest_framework import generics,permissions,authentication
 
 
 class DetailPersonne(generics.RetrieveAPIView):
@@ -41,3 +41,9 @@ class UpdatePersonne(generics.UpdateAPIView):
     queryset = Personne.objects.all()
     serializer_class = PersonneSerializer
     lookup_field='pk'
+    
+class Createlist(generics.ListCreateAPIView):
+    permission_classes = [permissions.IsAuthenticatedOrReadOnly]
+    queryset = Personne.objects.all()
+    serializer_class = PersonneSerializer
+    authentication_classes = [authentication.SessionAuthentication]
